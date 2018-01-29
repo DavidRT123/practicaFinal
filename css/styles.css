@@ -1,0 +1,23 @@
+/*XS*/
+@media screen and (min-width: 1px) and (max-width: 575px) { 
+
+	#tabla{
+		font-size: 10px;
+	}
+
+/*SM*/
+@media screen and (min-width: 576px) and (max-width: 767px) {
+
+/*MD*/
+@media screen and (min-width: 768px) and (max-width: 991px) {
+	body{
+	   	background-size: 2255px 1000px;
+	}
+}
+
+/*LG*/
+@media screen and (min-width: 992px) and (max-width: 1199px) {
+	body{
+	   	background-size: 2255px 1000px;
+	}
+}

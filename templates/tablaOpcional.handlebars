@@ -1,0 +1,27 @@
+<i class="fa fa-plus-circle fa-2x"></i>
+<table class="table">
+	<thead>
+	<tr>
+		<td>Nombres</td>
+		<td>Ciudad</td>
+		<td>Sexo</td>
+		<td>Teléfonos</td>
+		<td>Fecha de nacimiento</td>
+		<td></td>
+		<td></td>
+	</tr>
+	</thead>
+	<tbody>
+		{{#each this}}
+			<tr>
+				<td>{{this.nombres}}</td>
+				<td>{{this.ciudad}}</td>
+				<td>{{this.sexo}}</td>
+				<td>{{this.telefono}}</td>
+				<td>{{this.fechaNacimiento}}</td>
+				<td><i class="fa fa-pencil-alt fa-2x"></i></td>
+				<td><i class="fa fa-times-circle fa-2x"></i></td>
+			</tr>
+		{{/each}}
+	</tbody>
+</table>
