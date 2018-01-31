@@ -19,6 +19,12 @@ templates['tabla'] = template({"1":function(container,depth0,helpers,partials,da
     + alias4(((helper = (helper = helpers.telefono || (depth0 != null ? depth0.telefono : depth0)) != null ? helper : alias2),(typeof helper === alias3 ? helper.call(alias1,{"name":"telefono","hash":{},"data":data}) : helper)))
     + "</td>\r\n					<td>"
     + alias4((helpers.convertirFecha || (depth0 && depth0.convertirFecha) || alias2).call(alias1,(depth0 != null ? depth0.fechaNacimiento : depth0),{"name":"convertirFecha","hash":{},"data":data}))
+    + "</td>\r\n					<td>"
+    + alias4(((helper = (helper = helpers.direccion || (depth0 != null ? depth0.direccion : depth0)) != null ? helper : alias2),(typeof helper === alias3 ? helper.call(alias1,{"name":"direccion","hash":{},"data":data}) : helper)))
+    + "</td>\r\n					<td>"
+    + alias4(((helper = (helper = helpers.provincia || (depth0 != null ? depth0.provincia : depth0)) != null ? helper : alias2),(typeof helper === alias3 ? helper.call(alias1,{"name":"provincia","hash":{},"data":data}) : helper)))
+    + "</td>\r\n					<td>"
+    + alias4((helpers.convertirFecha || (depth0 && depth0.convertirFecha) || alias2).call(alias1,(depth0 != null ? depth0.fechaAlta : depth0),{"name":"convertirFecha","hash":{},"data":data}))
     + "</td>\r\n					<td><i class=\"modificar fa fa-pencil-alt fa-2x\"></i></td>\r\n					<td><i class=\"eliminar fa fa-times-circle fa-2x\"></i></td>\r\n				</tr>\r\n";
 },"compiler":[7,">= 4.0.0"],"main":function(container,depth0,helpers,partials,data) {
     var stack1;

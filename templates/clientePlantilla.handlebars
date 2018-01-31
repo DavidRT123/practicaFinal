@@ -25,4 +25,17 @@
 		<label for="fechaNacimiento" class="col-5">Fecha de nacimiento</label>
 		<input id="fechaNacimiento" class="form-control col-6" type="text" value="{{convertirFecha fechaNacimiento}}">
 	</div>
+	
+	<div class="form-group row">
+		<label for="direccion" class="col-5">Dirección</label>
+		<input id="direccion" class="form-control col-6" type="text" value="{{ direccion }}">
+	</div>
+	<div class="form-group row">
+		<label for="provincia" class="col-5">Provincia</label>
+		<input id="provincia" class="form-control col-6" type="text" value="{{ provincia }}">
+	</div>
+	<div class="form-group row">
+		<label for="fechaAlta" class="col-5">Fecha de alta</label>
+		<input id="fechaAlta" class="form-control col-6" type="text" value="{{convertirFecha fechaAlta}}" disabled>
+	</div>
 </form>

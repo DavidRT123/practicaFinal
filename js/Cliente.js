@@ -7,7 +7,10 @@ factory = (function(){
             ciudad: objeto.ciudad,
             sexo: objeto.sexo,
             telefono: objeto.telefono,
-            fechaNacimiento: objeto.fechaNacimiento
+            fechaNacimiento: objeto.fechaNacimiento,
+            direccion: objeto.direccion,
+            provincia: objeto.provincia,
+            fechaAlta: objeto.fechaAlta
         };
     }
 
