@@ -10,7 +10,7 @@ factory = (function(){
             fechaNacimiento: objeto.fechaNacimiento,
             direccion: objeto.direccion,
             provincia: objeto.provincia,
-            fechaAlta: objeto.fechaAlta
+            fechaAlta: "1980-10-01 00:00:00"
         };
     }
 

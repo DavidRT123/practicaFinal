@@ -10,9 +10,18 @@ $(document).ready(function(){
 
 	//Evento botón añadir del formulario
 	$("#buttAdd").click(function(){
+		//Dar valor a la fecha de alta
+		fecha = new Date();
+		d = fecha.getDate();
+		d = (d <= 9) ? "0"+d : d;
+		m = fecha.getMonth()+1;
+		m = (m <= 9) ? "0"+m : m;
+		y = fecha.getFullYear();
+		fA = y + "/" + m + "/" + d + " 00:00:00";
+		////////////////
 		datos = recogerDatos();
 		fechaNacimiento = datos.fechaNacimiento.split("/").reverse().join("-")+" 00:00:00";
-		cli = factory.createCliente({id: "", nombres: datos.nombres, ciudad: datos.ciudad, sexo: datos.sexo, telefono: datos.telefono, fechaNacimiento: fechaNacimiento});
+		cli = factory.createCliente({id: "", nombres: datos.nombres, ciudad: datos.ciudad, sexo: datos.sexo, telefono: datos.telefono, fechaNacimiento: fechaNacimiento, direccion: direccion, provincia: provincia, fechaAlta: fA});
 		_listClientes.add(cli);
 		$("#modal").modal("hide");
 	});
@@ -30,7 +39,7 @@ $(document).ready(function(){
 
 	//Botón de añadir página principal
 	$("#tabla").on('click', '#añadir', function(){
-		cliente = {id: "", nombres: "", ciudad: "", telefono: "", fechaNacimiento: ""};
+		cliente = {id: "", nombres: "", ciudad: "", telefono: "", fechaNacimiento: "", direccion: "", provincia: "", fechaAlta: ""};
 		//Rellenar modal con la plantilla de handlebars
 		events.getInstance().publish('renderCliente', cliente);
 		rellenarModal("Añadir", 0);
@@ -75,14 +84,22 @@ $(document).ready(function(){
 
 //FUNCIONES AUXILIARES
 
-	//Función que recoge lops datos introducidos en el modal (ya sea para añadir un nuevo cliente o modificar uno ya existente)
+	//Función que recoge los datos introducidos en el modal (ya sea para añadir un nuevo cliente o modificar uno ya existente)
 	function recogerDatos(){
+		if($("fechaAlta").val() != ""){
+			fechaA = $("fechaAlta").val()
+		}else{
+			fechaA = "";
+		}
 		return {
 			nombres: $("#nombre").val(), 
 			ciudad: $("#ciudad").val(),
 			sexo: $("input[name=sexo]:checked").val(),
 			telefono: $("#telefono").val(),
-			fechaNacimiento: $("#fechaNacimiento").val()
+			fechaNacimiento: $("#fechaNacimiento").val(),
+			direccion: $("#direccion").val(),
+			provincia: $("#provincia").val(),
+			fechaAlta: fechaA
 		}
 	}
 
@@ -97,6 +114,8 @@ $(document).ready(function(){
 		}else{
 			$("#buttMod").hide();
 			$("#buttAdd").show();
+			//Ocultar la div de fecha alta (no es un dato relevante para el usuario a la hora de añadir)
+			$("#divFechaAlta").hide();
 		}
 		$('#fechaNacimiento').datepicker({changeYear: true, yearRange: "1900:2018", changeMonth: true});
 	}	

@@ -21,7 +21,7 @@ templates['clientePlantilla'] = template({"compiler":[7,">= 4.0.0"],"main":funct
     + alias4(((helper = (helper = helpers.direccion || (depth0 != null ? depth0.direccion : depth0)) != null ? helper : alias2),(typeof helper === alias3 ? helper.call(alias1,{"name":"direccion","hash":{},"data":data}) : helper)))
     + "\">\r\n	</div>\r\n	<div class=\"form-group row\">\r\n		<label for=\"provincia\" class=\"col-5\">Provincia</label>\r\n		<input id=\"provincia\" class=\"form-control col-6\" type=\"text\" value=\""
     + alias4(((helper = (helper = helpers.provincia || (depth0 != null ? depth0.provincia : depth0)) != null ? helper : alias2),(typeof helper === alias3 ? helper.call(alias1,{"name":"provincia","hash":{},"data":data}) : helper)))
-    + "\">\r\n	</div>\r\n	<div class=\"form-group row\">\r\n		<label for=\"fechaAlta\" class=\"col-5\">Fecha de alta</label>\r\n		<input id=\"fechaAlta\" class=\"form-control col-6\" type=\"text\" value=\""
+    + "\">\r\n	</div>\r\n	<div id=\"divFechaAlta\" class=\"form-group row\">\r\n		<label for=\"fechaAlta\" class=\"col-5\">Fecha de alta</label>\r\n		<input id=\"fechaAlta\" class=\"form-control col-6\" type=\"text\" value=\""
     + alias4((helpers.convertirFecha || (depth0 && depth0.convertirFecha) || alias2).call(alias1,(depth0 != null ? depth0.fechaAlta : depth0),{"name":"convertirFecha","hash":{},"data":data}))
     + "\" disabled>\r\n	</div>\r\n</form>";
 },"useData":true});
