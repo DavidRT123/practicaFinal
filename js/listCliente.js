@@ -19,7 +19,20 @@ _listClientes = (function (){
 	//Método para añadir objetos cliente al final del array "arrayClientes" (y añadirlos también a la base de datos)
 	var add = function(obClien){
 		//Función ajax para añadir a la base de datos
-		$.post(("http://" + url + "/API/nuevo.php"), {submit: "true", id: obClien.id, ciudad: obClien.ciudad, nombres: obClien.nombres, ciudad: obClien.ciudad, sexo: obClien.sexo, telefono: obClien.telefono, fechaNacimiento: obClien.fechaNacimiento}, function(devuelto){
+		$.post(("http://" + url + "/API/nuevo.php"), {
+			submit: "true",
+			id: obClien.id,
+			ciudad: obClien.ciudad,
+			nombres: obClien.nombres,
+			ciudad: obClien.ciudad,
+			sexo: obClien.sexo,
+			telefono: obClien.telefono,
+			fechaNacimiento: obClien.fechaNacimiento,
+			direccion: obClien.direccion,
+			provincia: obClien.provincia,
+			fechaAlta: obClien.fechaAlta
+		}, 
+		function(devuelto){
 			obClien.id = devuelto.id.toString();
 			arrayClientes.push(obClien);
 			//Publica la función que hará que el array se cargue en la interfaz gráfica
@@ -42,13 +55,29 @@ _listClientes = (function (){
 	//Método para modificar un cliente del array "arrayCliente" pasándole sus nuevos valores y el índice
 	var modify = function(indice, json){
 		//Función ajax para actualizar el registro en la base de datos
-		$.post(("http://" + url + "/API/actualizar.php"), {submit: "true", id: arrayClientes[indice].id, ciudad: json.ciudad, nombres: json.nombres, ciudad: json.ciudad, sexo: json.sexo, telefono: json.telefono, fechaNacimiento: json.fechaNacimiento}, function(result){
+		$.post(("http://" + url + "/API/actualizar.php"), {
+			submit: "true",
+			id: arrayClientes[indice].id,
+			ciudad: json.ciudad,
+			nombres: json.nombres,
+			ciudad: json.ciudad, 
+			sexo: json.sexo, 
+			telefono: json.telefono, 
+			fechaNacimiento: json.fechaNacimiento, 
+			direccion: json.direccion, 
+			provincia: json.provincia, 
+			fechaAlta: json.fechaAlta
+		}, 
+		function(result){
 			cliente = arrayClientes[indice];
 			cliente.nombres = json.nombres;
 			cliente.ciudad = json.ciudad;
 			cliente.sexo = json.sexo;
 			cliente.telefono = json.telefono;
 			cliente.fechaNacimiento = json.fechaNacimiento;
+			cliente.direccion = json.direccion;
+			cliente.provincia = json.provincia;
+			cliente.fechaAlta = json.fechaAlta;
 			events.getInstance().publish('modCliente', {cliente: cliente, indice: indice});
 		});
 	}

@@ -15,6 +15,12 @@ var listClientesView = (function () {
 		//La fecha se pone en el formato adecuado (ya que esta guardada en el cliente con el formato de la BBDD)
 		fechaNacimiento = json.cliente.fechaNacimiento.split(" ");
 		td[4].innerHTML = fechaNacimiento[0].split("-").reverse().join("/");
+		td[5].innerHTML = json.cliente.direccion;
+		td[6].innerHTML = json.cliente.provincia;
+		//La fecha se pone en el formato adecuado (ya que esta guardada en el cliente con el formato de la BBDD)
+		fechaAlta = json.cliente.fechaAlta.split(" ");
+		td[7].innerHTML = fechaAlta[0].split("-").reverse().join("/");
+
 	}
 
 	function deleteRow(padre){

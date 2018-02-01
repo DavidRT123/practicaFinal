@@ -12,16 +12,25 @@ $(document).ready(function(){
 	$("#buttAdd").click(function(){
 		//Dar valor a la fecha de alta
 		fecha = new Date();
-		d = fecha.getDate();
-		d = (d <= 9) ? "0"+d : d;
-		m = fecha.getMonth()+1;
-		m = (m <= 9) ? "0"+m : m;
+		d = (fecha.getDate() < 10) ? ("0" + fecha.getDate()) : fecha.getDate();
+		m = ((fecha.getMonth()+1) < 10) ? ("0" + (fecha.getMonth()+1)) : (fecha.getMonth()+1);
 		y = fecha.getFullYear();
-		fA = y + "/" + m + "/" + d + " 00:00:00";
-		////////////////
+		fA = y + "-" + m + "-" + d + " 00:00:00";
+	
 		datos = recogerDatos();
-		fechaNacimiento = datos.fechaNacimiento.split("/").reverse().join("-")+" 00:00:00";
-		cli = factory.createCliente({id: "", nombres: datos.nombres, ciudad: datos.ciudad, sexo: datos.sexo, telefono: datos.telefono, fechaNacimiento: fechaNacimiento, direccion: direccion, provincia: provincia, fechaAlta: fA});
+		fechaNacimiento = convertirFechaBBDD(datos.fechaNacimiento);
+		cli = factory.createCliente(
+			{
+				id: "", 
+				nombres: datos.nombres, 
+				ciudad: datos.ciudad,
+				sexo: datos.sexo,
+				telefono: datos.telefono,
+				fechaNacimiento: fechaNacimiento,
+				direccion: datos.direccion,
+				provincia: datos.provincia,
+				fechaAlta: fA
+			});
 		_listClientes.add(cli);
 		$("#modal").modal("hide");
 	});
@@ -29,9 +38,21 @@ $(document).ready(function(){
 	//Evento botón modificar del formulario
 	$("#buttMod").click(function(){
 		datos = recogerDatos();
-		fechaNacimiento = datos.fechaNacimiento.split("/").reverse().join("-")+" 00:00:00";
+		//Transformación de las fechas al formato de la BBDD
+		fechaNacimiento = convertirFechaBBDD(datos.fechaNacimiento);
+		fechaAlta = convertirFechaBBDD(datos.fechaAlta);
+		
 		indice = $('input').data('id');
-		_listClientes.modify(indice, {nombres: datos.nombres, ciudad: datos.ciudad, sexo: datos.sexo, telefono: datos.telefono, fechaNacimiento: fechaNacimiento});
+		_listClientes.modify(indice, {
+			nombres: datos.nombres,
+			ciudad: datos.ciudad,
+			sexo: datos.sexo,
+			telefono: datos.telefono,
+			fechaNacimiento: fechaNacimiento,
+			direccion: datos.direccion,
+			provincia: datos.provincia,
+			fechaAlta: fechaAlta
+		});
 		$("#modal").modal("hide");
 	});
 	
@@ -39,7 +60,16 @@ $(document).ready(function(){
 
 	//Botón de añadir página principal
 	$("#tabla").on('click', '#añadir', function(){
-		cliente = {id: "", nombres: "", ciudad: "", telefono: "", fechaNacimiento: "", direccion: "", provincia: "", fechaAlta: ""};
+		cliente = {
+			id: "",
+			nombres: "",
+			ciudad: "",
+			telefono: "",
+			fechaNacimiento: "",
+			direccion: "",
+			provincia: "",
+			fechaAlta: ""
+		};
 		//Rellenar modal con la plantilla de handlebars
 		events.getInstance().publish('renderCliente', cliente);
 		rellenarModal("Añadir", 0);
@@ -86,19 +116,24 @@ $(document).ready(function(){
 
 	//Función que recoge los datos introducidos en el modal (ya sea para añadir un nuevo cliente o modificar uno ya existente)
 	function recogerDatos(){
-		if($("fechaAlta").val() != ""){
-			fechaA = $("fechaAlta").val()
-		}else{
-			fechaA = "";
-		}
+		//Filtro por si no se han rellenado los campos
+		nom = ($("#nombre").val() == undefined || $("#nombre").val() == "") ? "VACIO" : $("#nombre").val();
+		ciu = ($("#ciudad").val() == undefined || $("#ciudad").val() == "") ? "VACIO" : $("#ciudad").val();
+		sex = ($("input[name=sexo]:checked").val() == undefined || $("input[name=sexo]:checked").val() == "") ? "*" : $("input[name=sexo]:checked").val();
+		tel = ($("#telefono").val() == undefined || $("#telefono").val() == "") ? "VACIO" : $("#telefono").val();
+		feN = ($("#fechaNacimiento").val() == undefined || $("#fechaNacimiento").val() == "") ? "0001-01-01 00:00:00" : $("#fechaNacimiento").val();
+		dir = ($("#direccion").val() == undefined || $("#direccion").val() == "") ? "VACIO" : $("#direccion").val();
+		pro = ($("#provincia").val() == undefined || $("#provincia").val() == "") ? "VACIO" : $("#provincia").val();
+		fechaA = ($("#fechaAlta").val() == undefined || $("#fechaAlta").val() == "") ? "0001-01-01 00:00:00" : $("#fechaAlta").val();
+
 		return {
-			nombres: $("#nombre").val(), 
-			ciudad: $("#ciudad").val(),
-			sexo: $("input[name=sexo]:checked").val(),
-			telefono: $("#telefono").val(),
-			fechaNacimiento: $("#fechaNacimiento").val(),
-			direccion: $("#direccion").val(),
-			provincia: $("#provincia").val(),
+			nombres: nom, 
+			ciudad: ciu,
+			sexo: sex,
+			telefono: tel,
+			fechaNacimiento: feN,
+			direccion: dir,
+			provincia: pro,
 			fechaAlta: fechaA
 		}
 	}
@@ -118,6 +153,13 @@ $(document).ready(function(){
 			$("#divFechaAlta").hide();
 		}
 		$('#fechaNacimiento').datepicker({changeYear: true, yearRange: "1900:2018", changeMonth: true});
+	}
+
+	//Función para transformar fecha
+	function convertirFechaBBDD(fecha){
+		fecha = fecha.split(" ");
+		fecha = fecha[0].split("/").reverse().join("-");
+		return fecha;
 	}	
 })
 
