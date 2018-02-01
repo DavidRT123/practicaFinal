@@ -12,7 +12,15 @@ $(document).ready(function(){
 	$("#buttAdd").click(function(){
 		datos = recogerDatos();
 		fechaNacimiento = datos.fechaNacimiento.split("/").reverse().join("-")+" 00:00:00";
-		cli = factory.createCliente({id: "", nombres: datos.nombres, ciudad: datos.ciudad, sexo: datos.sexo, telefono: datos.telefono, fechaNacimiento: fechaNacimiento});
+		cli = factory.createCliente({
+			id: "", 
+			nombres: 
+			datos.nombres, 
+			ciudad: datos.ciudad, 
+			sexo: datos.sexo, 
+			telefono: datos.telefono, 
+			fechaNacimiento: fechaNacimiento
+		});
 		_listClientes.add(cli);
 		$("#modal").modal("hide");
 	});
@@ -22,7 +30,13 @@ $(document).ready(function(){
 		datos = recogerDatos();
 		fechaNacimiento = datos.fechaNacimiento.split("/").reverse().join("-")+" 00:00:00";
 		indice = $('input').data('id');
-		_listClientes.modify(indice, {nombres: datos.nombres, ciudad: datos.ciudad, sexo: datos.sexo, telefono: datos.telefono, fechaNacimiento: fechaNacimiento});
+		_listClientes.modify(indice, {
+			nombres: datos.nombres, 
+			ciudad: datos.ciudad, 
+			sexo: datos.sexo, 
+			telefono: datos.telefono, 
+			fechaNacimiento: fechaNacimiento
+		});
 		$("#modal").modal("hide");
 	});
 	
@@ -77,12 +91,19 @@ $(document).ready(function(){
 
 	//Función que recoge lops datos introducidos en el modal (ya sea para añadir un nuevo cliente o modificar uno ya existente)
 	function recogerDatos(){
+		//Filtro por si no se han rellenado los campos
+		nom = ($("#nombre").val() == undefined || $("#nombre").val() == "") ? "VACIO" : $("#nombre").val();
+		ciu = ($("#ciudad").val() == undefined || $("#ciudad").val() == "") ? "VACIO" : $("#ciudad").val();
+		sex = ($("input[name=sexo]:checked").val() == undefined || $("input[name=sexo]:checked").val() == "") ? "*" : $("input[name=sexo]:checked").val();
+		tel = ($("#telefono").val() == undefined || $("#telefono").val() == "") ? "VACIO" : $("#telefono").val();
+		feN = ($("#fechaNacimiento").val() == undefined || $("#fechaNacimiento").val() == "") ? "0001-01-01 00:00:00" : $("#fechaNacimiento").val();
+		
 		return {
-			nombres: $("#nombre").val(), 
-			ciudad: $("#ciudad").val(),
-			sexo: $("input[name=sexo]:checked").val(),
-			telefono: $("#telefono").val(),
-			fechaNacimiento: $("#fechaNacimiento").val()
+			nombres: nom, 
+			ciudad: ciu,
+			sexo: sex,
+			telefono: tel,
+			fechaNacimiento: feN
 		}
 	}
 
