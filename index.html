@@ -1,53 +1,49 @@
 <!DOCTYPE html>
 <html lang="es">
-<head>
+<head> 
 	<meta charset="UTF-8">
 	<title>Práctica final</title>
 	<link href="css/styles.css" rel="stylesheet"/>
-	<link href="css/bootstrapCss/bootstrap.min.css" rel="stylesheet"/>
-	<link href="css/bootstrapCss/bootstrap-datepicker.min.css" rel="stylesheet"/>
 	<link href="css/fontawesome/fontawesome-all.css" rel="stylesheet"/>
+	<!-- SEMANTIC -->
+    <link type="text/css" rel="stylesheet" href="css/semanticCss/semantic.min.css"/>
 	<link rel="stylesheet" href="lib/jquery-ui/jquery-ui.min.css" class="href">
+	<!-- /////////////////// -->
 	<script src="js/handlebars.runtime-v4.0.11.js"></script>
 	<script src="lib/jquery-3.2.1.js"></script>
 	<script src="lib/jquery-ui/jquery-ui.min.js"></script>
 	<script src="lib/jquery-ui/es.js"></script>
-	<script src="js/bootstrapJs/bootstrap.min.js"></script>
 	<script src="js/tabla.js"></script>
 	<script src="js/clientePlantilla.js"></script>
+	<script src="js/semanticJs/semantic.js"></script>
 </head>
 <body>
 	<!--MODAL-->
-	<div id="modal" class="modal" tabindex="-1" role="dialog"">
-		  <div class="modal-dialog" role="document">
-		    <div class="modal-content">
-		      <div class="modal-header">
-		        <h5 id="title-modal" class="modal-title"></h5>
-		        <button type="button" class="close" data-dismiss="modal" aria-label="Cerrar">
-		          <span aria-hidden="true">&times;</span>
-		        </button>
-		      </div>
-		      <!-- Aquí es donde se introduce el formulario a través de ClientView -->
-		      <div id="contenedorFormulario" class="modal-body">
-		        
-				
-		      </div>
-		      <div class="modal-footer">
-		        <button id="buttMod" type="button" class="btn btn-primary">Modificar</button>
-		        <button id="buttAdd" type="button" class="btn btn-primary">Añadir</button>
-		        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
-		      </div>
-		 	</div>
+	<div id="modal" class="ui modal">
+		<i class="close icon"></i>
+		<div id="title-modal" class="header">
+		</div>
+		<div class="content">
+		    <div id="contenedorFormulario" class="eight wide computer column">
+		      
+		    </div>
+		    <div class="actions">
+		        <div id="buttAdd" class="ui positive button">Añadir</div>
+			    <div id="buttMod" class="ui positive button">Modificar</div>
+			    <div onclick="$('#contModal').modal('hide');" class="ui red button">Cancelar</div>
+		     </div>
 		</div>
 	</div>
-
+	
 	<!--TABLA-->
-	<div class="container">
-		<div id="tabla">
+	<div class="ui grid">
+		<div id="tabla" class="ten wide mobile ten wide tablet eight wide computer column centered">
 
 		</div>
 
 	</div>
+
+	<!-- SCRIPTS -->
 	<script src="js/events.js"></script>
 	<script src="js/Cliente.js"></script>
 	<script src="js/ClienteView.js"></script>

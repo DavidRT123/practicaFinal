@@ -2,7 +2,7 @@ $(document).ready(function(){
 	//Recuperación de las instancia eventos que contiene todas las funbciones para publicar
 	events.getInstance();
 	//Llamada a la función cargarDatos que cargará los datos y los mostrará en la interfaz gráfica
-	_listClientes.cargarDatos();
+	_listClientes.cargarDatos(); 
 
 //////// EVENTOS /////////
 
@@ -109,7 +109,7 @@ $(document).ready(function(){
 
 	//Función para rellenar el modal con los campos/botones apropiados (según sea el modal para modificar o añadir)
 	function rellenarModal(titulo, modAdd){
-		$("#modal").modal();
+		$("#modal").modal("show");
 		$("#title-modal").html(titulo);
 		//Valor: 1 = Modificar, cualquier otro valor: Añadir
 		if(modAdd == 1){
