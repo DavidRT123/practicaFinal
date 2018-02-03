@@ -1,7 +1,7 @@
 <i id="añadir" class="fa fa-plus-circle fa-2x"></i>
 <table class="table table-resposive table-hover">
 	<thead class='thead-dark'>
-	<tr>
+	<tr class='d-none d-sm-table-row'>
 		<th>Nombres</th>
 		<th>Ciudad</th>
 		<th>Sexo</th>
@@ -11,7 +11,7 @@
 		<th></th>
 	</tr>
 	</thead>
-	<tbody>
+	<tbody class="cuerpo">
 		{{#each this}}
 			{{#if this}}
     			<tr data-id="{{@index}}">
@@ -26,4 +26,40 @@
   			{{/if}}
 		{{/each}}
 	</tbody>
+	<tbody class="d-sm-none">
+		{{#each this}}
+			{{#if this}}
+    			<tr class="separador {{@index}}">
+    				<td colspan="2"></td>
+    			</tr>
+    			<tr data-id="{{@index}}" class="nombre {{@index}}">
+    				<td class="font-weight-bold izquierda">Nombre:</td><td class='derecha'>{{nombres}}</td>
+    			</tr>
+
+				<tr data-id="{{@index}}" class="ciudad {{@index}}">
+					<td class="font-weight-bold izquierda">Ciudad: </td><td class='derecha'>{{ciudad}}</td>
+				</tr>
+
+				<tr data-id="{{@index}}" class="sexo {{@index}}">
+					<td id="sexo"  class="font-weight-bold izquierda">Sexo: </td><td class='derecha'>{{sexo}}</td>
+				</tr>
+
+				<tr data-id="{{@index}}" class="telefono {{@index}}">
+					<td class="font-weight-bold izquierda">Teléfono: </td><td class='derecha'>{{telefono}}</td>
+				</tr>
+
+				<tr data-id="{{@index}}" class="fecha {{@index}}">
+					<td class="font-weight-bold izquierda">Fecha de nacimiento: </td><td class='derecha'>{{convertirFecha fechaNacimiento}}</td>
+				</tr>
+
+				<tr data-id="{{@index}}" class="botones {{@index}}"><td colspan="2"><i class="modificar fa fa-pencil-alt fa-2x pr-4"></i><i class="eliminar fa fa-times-circle fa-2x pl-4"></i></td>
+				</tr>
+
+				<tr class="separadorAbajo {{@index}}">
+    				<td colspan="2"></td>
+    			</tr>
+  			{{/if}}
+		{{/each}}
+	</tbody>
 </table>
+

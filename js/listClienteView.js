@@ -14,11 +14,23 @@ var listClientesView = (function () {
 		td[3].innerHTML = json.cliente.telefono;
 		//La fecha se pone en el formato adecuado (ya que esta guardada en el cliente con el formato de la BBDD)
 		fechaNacimiento = json.cliente.fechaNacimiento.split(" ");
-		td[4].innerHTML = fechaNacimiento[0].split("-").reverse().join("/");
+		fechaNacimiento = fechaNacimiento[0].split("-").reverse().join("/");
+		td[4].innerHTML = fechaNacimiento;
+		//Modificar las celdas de la vista mobile
+		$("tr[class='nombre "+json.indice+"']" ).children("td")[1].innerHTML = json.cliente.nombres;
+		$("tr[class='ciudad "+json.indice+"']" ).children("td")[1].innerHTML = json.cliente.ciudad;
+		$("tr[class='sexo "+json.indice+"']" ).children("td")[1].innerHTML = json.cliente.sexo;
+		$("tr[class='telefono "+json.indice+"']" ).children("td")[1].innerHTML = json.cliente.telefono;
+		$("tr[class='fecha "+json.indice+"']" ).children("td")[1].innerHTML = fechaNacimiento;
 	}
 
 	function deleteRow(padre){
 		padre.remove();
+		//Eliminar las celdas de la vista mobile
+		id = padre.data("id");
+		$("tr[data-id='"+id+"']" ).remove();
+		$("tr[class='separador "+id+"']").remove();
+		$("tr[class='separadorAbajo "+id+"']").remove();
 	}
 
 	return {
