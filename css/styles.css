@@ -1,8 +1,53 @@
 /*XS*/
 @media screen and (min-width: 1px) and (max-width: 575px) { 
 
-	#tabla{
-		font-size: 10px;
+	.cuerpo{
+		display: none;
+	}
+
+	.botones{
+		text-align: center;
+	}
+	
+	.separador > td, .botones{
+		border-left: solid black 1px;
+		border-right: solid black 1px;
+	}
+	
+
+	.separador{
+		border-top: solid black 2px;
+		border-bottom: solid #dee2e6 1px;
+		background: #dee2e6;
+	}
+
+	.separador > td{
+		height: 30px;
+	}
+
+	.separadorAbajo{
+		height: 50px;
+		border: 0;
+	}
+
+	.separadorAbajo > td{
+		border: 0;
+	}
+
+	.separadorAbajo > td:hover{
+		background: white;
+	}
+
+	.izquierda{
+		border-left: solid black 1px;
+	} 
+
+	.derecha{
+		border-right: solid black 1px;
+	}
+
+	.botones{
+		border-bottom: solid black 2px;
 	}
 
 /*SM*/
