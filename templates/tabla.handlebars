@@ -1,7 +1,7 @@
 <i id="añadir" class="fa fa-plus-circle fa-2x"></i>
 <div class='grid'>
 	<table class="ui celled striped table">
-		<thead class='titulos'>
+		<thead class='ui tablet computer large monitor only'>
 		<tr>
 			<th>Nombres</th>
 			<th>Ciudad</th>
@@ -15,11 +15,11 @@
 			{{#each this}}
 				{{#if this}}
 	    			<tr data-id="{{@index}}">
-						<td class='titleMobile'>Nombre: </td><td>{{nombres}}</td>
-						<td class='titleMobile'>Ciudad: </td><td>{{ciudad}}</td>
-						<td class='titleMobile'>Sexo: </td><td>{{sexo}}</td>
-						<td class='titleMobile'>Teléfono: </td><td>{{telefono}}</td>
-						<td class='titleMobile'>Fecha de nacimiento: </td><td>{{convertirFecha fechaNacimiento}}</td>
+						<td class='ui mobile only bold'>Nombre: </td><td>{{nombres}}</td>
+						<td class='ui mobile only bold'>Ciudad: </td><td>{{ciudad}}</td>
+						<td class='ui mobile only bold'>Sexo: </td><td>{{sexo}}</td>
+						<td class='ui mobile only bold'>Teléfono: </td><td>{{telefono}}</td>
+						<td class='ui mobile only bold'>Fecha de nacimiento: </td><td>{{convertirFecha fechaNacimiento}}</td>
 						<td colspan='2px'><i class="modificar fa fa-pencil-alt fa-2x"></i><i class="eliminar fa fa-times-circle fa-2x"></i></td>
 					</tr>
 	  			{{/if}}
