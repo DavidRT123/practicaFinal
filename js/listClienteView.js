@@ -8,13 +8,13 @@ var listClientesView = (function () {
 	function modCliente(json){
 		tr = $("tr[data-id='"+json.indice+"']" );
 		td = tr.find("td");
-		td[0].innerHTML = json.cliente.nombres;
-		td[1].innerHTML = json.cliente.ciudad;
-		td[2].innerHTML = json.cliente.sexo;
-		td[3].innerHTML = json.cliente.telefono;
+		td.eq(0).text(json.cliente.nombres);
+		td.eq(1).text(json.cliente.ciudad);
+		td.eq(2).text(json.cliente.sexo);
+		td.eq(3).text(json.cliente.telefono);
 		//La fecha se pone en el formato adecuado (ya que esta guardada en el cliente con el formato de la BBDD)
 		fechaNacimiento = json.cliente.fechaNacimiento.split(" ");
-		td[4].innerHTML = fechaNacimiento[0].split("-").reverse().join("/");
+		td.eq(4).text(fechaNacimiento[0].split("-").reverse().join("/"));
 	}
 
 	function deleteRow(padre){

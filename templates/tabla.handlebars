@@ -1,7 +1,7 @@
 <i id="añadir" class="fa fa-plus-circle fa-2x"></i>
 <div class='grid'>
 	<table class="ui celled striped table">
-		<thead class='ui tablet computer large monitor only'>
+		<thead class='ui tablet computer large monitor widescreen monitor only'>
 		<tr>
 			<th>Nombres</th>
 			<th>Ciudad</th>
@@ -15,12 +15,22 @@
 			{{#each this}}
 				{{#if this}}
 	    			<tr data-id="{{@index}}">
-						<td class='ui mobile only bold'>Nombre: </td><td>{{nombres}}</td>
-						<td class='ui mobile only bold'>Ciudad: </td><td>{{ciudad}}</td>
-						<td class='ui mobile only bold'>Sexo: </td><td>{{sexo}}</td>
-						<td class='ui mobile only bold'>Teléfono: </td><td>{{telefono}}</td>
-						<td class='ui mobile only bold'>Fecha de nacimiento: </td><td>{{convertirFecha fechaNacimiento}}</td>
-						<td colspan='2px'><i class="modificar fa fa-pencil-alt fa-2x"></i><i class="eliminar fa fa-times-circle fa-2x"></i></td>
+						<th class='ui mobile only campo'>Nombre: </th>
+						<td>{{nombres}}</td>
+
+						<th class='ui mobile only campo'>Ciudad: </th>
+						<td>{{ciudad}}</td>
+
+						<th class='ui mobile only campo'>Sexo: </th>
+						<td>{{sexo}}</td>
+
+						<th class='ui mobile only campo'>Teléfono: </th>
+						<td>{{telefono}}</td>
+
+						<th class='ui mobile only campo'>Fecha de nacimiento: </th>
+						<td>{{convertirFecha fechaNacimiento}}</td>
+
+						<td colspan='2'><i class="modificar fa fa-pencil-alt fa-2x"></i><i class="eliminar fa fa-times-circle fa-2x"></i></td>
 					</tr>
 	  			{{/if}}
 			{{/each}}
