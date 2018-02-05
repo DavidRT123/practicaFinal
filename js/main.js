@@ -1,5 +1,5 @@
 $(document).ready(function(){
-	//Recuperación de las instancia eventos que contiene todas las funbciones para publicar
+	//Recuperación de la instancia eventos que contiene todas las funciones para publicar
 	events.getInstance();
 	//Llamada a la función cargarDatos que cargará los datos y los mostrará en la interfaz gráfica
 	_listClientes.cargarDatos();
