@@ -16,6 +16,19 @@ _listClientes = (function (){
 
 	}
 
+	var map = function(direccion){
+		var url = "https://maps.googleapis.com/maps/api/geocode/json?address="+direccion+"&region=es&key=AIzaSyAhPxKupiplcAmbkKEbIX9IF2-2rgcdQE4";
+		$.post(url, function(result){
+			if (result.status == "OK") {
+	            var lat = result.results[0].geometry.location.lat;
+	            var lng = result.results[0].geometry.location.lng;
+		    }else{
+		        result = "La dirección no ha podido ser localizada";
+		    }
+		    
+		}, "json");
+	}
+
 	//Método para añadir objetos cliente al final del array "arrayClientes" (y añadirlos también a la base de datos)
 	var add = function(obClien){
 		//Función ajax para añadir a la base de datos
@@ -94,6 +107,7 @@ _listClientes = (function (){
 
 	return{
 		add: add,
+		map: map,
 		delete: Delete,
 		modify: modify,
 		GetValues: GetValues,

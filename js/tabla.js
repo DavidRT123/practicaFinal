@@ -11,7 +11,7 @@ templates['tabla'] = template({"1":function(container,depth0,helpers,partials,da
     + alias4(((helper = (helper = helpers.index || (data && data.index)) != null ? helper : alias2),(typeof helper === alias3 ? helper.call(alias1,{"name":"index","hash":{},"data":data}) : helper)))
     + "\">\r\n					<td>"
     + alias4(((helper = (helper = helpers.nombres || (depth0 != null ? depth0.nombres : depth0)) != null ? helper : alias2),(typeof helper === alias3 ? helper.call(alias1,{"name":"nombres","hash":{},"data":data}) : helper)))
-    + "</td>\r\n					<td>"
+    + "</td>\r\n					<td class=\"ciudad\">"
     + alias4(((helper = (helper = helpers.ciudad || (depth0 != null ? depth0.ciudad : depth0)) != null ? helper : alias2),(typeof helper === alias3 ? helper.call(alias1,{"name":"ciudad","hash":{},"data":data}) : helper)))
     + "</td>\r\n					<td>"
     + alias4(((helper = (helper = helpers.sexo || (depth0 != null ? depth0.sexo : depth0)) != null ? helper : alias2),(typeof helper === alias3 ? helper.call(alias1,{"name":"sexo","hash":{},"data":data}) : helper)))
@@ -19,9 +19,9 @@ templates['tabla'] = template({"1":function(container,depth0,helpers,partials,da
     + alias4(((helper = (helper = helpers.telefono || (depth0 != null ? depth0.telefono : depth0)) != null ? helper : alias2),(typeof helper === alias3 ? helper.call(alias1,{"name":"telefono","hash":{},"data":data}) : helper)))
     + "</td>\r\n					<td>"
     + alias4((helpers.convertirFecha || (depth0 && depth0.convertirFecha) || alias2).call(alias1,(depth0 != null ? depth0.fechaNacimiento : depth0),{"name":"convertirFecha","hash":{},"data":data}))
-    + "</td>\r\n					<td>"
+    + "</td>\r\n					<td class=\"direccion\">"
     + alias4(((helper = (helper = helpers.direccion || (depth0 != null ? depth0.direccion : depth0)) != null ? helper : alias2),(typeof helper === alias3 ? helper.call(alias1,{"name":"direccion","hash":{},"data":data}) : helper)))
-    + "</td>\r\n					<td>"
+    + "</td>\r\n					<td class=\"provincia\">"
     + alias4(((helper = (helper = helpers.provincia || (depth0 != null ? depth0.provincia : depth0)) != null ? helper : alias2),(typeof helper === alias3 ? helper.call(alias1,{"name":"provincia","hash":{},"data":data}) : helper)))
     + "</td>\r\n					<td>"
     + alias4((helpers.convertirFecha || (depth0 && depth0.convertirFecha) || alias2).call(alias1,(depth0 != null ? depth0.fechaAlta : depth0),{"name":"convertirFecha","hash":{},"data":data}))
@@ -45,7 +45,7 @@ templates['tabla'] = template({"1":function(container,depth0,helpers,partials,da
     + alias4(((helper = (helper = helpers.index || (data && data.index)) != null ? helper : alias2),(typeof helper === alias3 ? helper.call(alias1,{"name":"index","hash":{},"data":data}) : helper)))
     + "\" class=\"ciudad "
     + alias4(((helper = (helper = helpers.index || (data && data.index)) != null ? helper : alias2),(typeof helper === alias3 ? helper.call(alias1,{"name":"index","hash":{},"data":data}) : helper)))
-    + "\">\r\n					<td class=\"font-weight-bold izquierda\">Ciudad: </td><td class='derecha'>"
+    + "\">\r\n					<td class=\"font-weight-bold izquierda\">Ciudad: </td><td class='derecha ciudad'>"
     + alias4(((helper = (helper = helpers.ciudad || (depth0 != null ? depth0.ciudad : depth0)) != null ? helper : alias2),(typeof helper === alias3 ? helper.call(alias1,{"name":"ciudad","hash":{},"data":data}) : helper)))
     + "</td>\r\n				</tr>\r\n\r\n				<tr data-id=\""
     + alias4(((helper = (helper = helpers.index || (data && data.index)) != null ? helper : alias2),(typeof helper === alias3 ? helper.call(alias1,{"name":"index","hash":{},"data":data}) : helper)))
@@ -69,13 +69,13 @@ templates['tabla'] = template({"1":function(container,depth0,helpers,partials,da
     + alias4(((helper = (helper = helpers.index || (data && data.index)) != null ? helper : alias2),(typeof helper === alias3 ? helper.call(alias1,{"name":"index","hash":{},"data":data}) : helper)))
     + "\" class=\"direccion "
     + alias4(((helper = (helper = helpers.index || (data && data.index)) != null ? helper : alias2),(typeof helper === alias3 ? helper.call(alias1,{"name":"index","hash":{},"data":data}) : helper)))
-    + "\">\r\n					<td class=\"font-weight-bold izquierda\">Dirección: </td><td class='derecha'>"
+    + "\">\r\n					<td class=\"font-weight-bold izquierda\">Dirección: </td><td class='derecha direccion'>"
     + alias4(((helper = (helper = helpers.direccion || (depth0 != null ? depth0.direccion : depth0)) != null ? helper : alias2),(typeof helper === alias3 ? helper.call(alias1,{"name":"direccion","hash":{},"data":data}) : helper)))
     + "</td>\r\n				</tr>\r\n\r\n				<tr data-id=\""
     + alias4(((helper = (helper = helpers.index || (data && data.index)) != null ? helper : alias2),(typeof helper === alias3 ? helper.call(alias1,{"name":"index","hash":{},"data":data}) : helper)))
     + "\" class=\"provincia"
     + alias4(((helper = (helper = helpers.index || (data && data.index)) != null ? helper : alias2),(typeof helper === alias3 ? helper.call(alias1,{"name":"index","hash":{},"data":data}) : helper)))
-    + "\">\r\n					<td class=\"font-weight-bold izquierda\">Provincia: </td><td class='derecha'>"
+    + "\">\r\n					<td class=\"font-weight-bold izquierda\">Provincia: </td><td class='derecha provincia'>"
     + alias4(((helper = (helper = helpers.provincia || (depth0 != null ? depth0.provincia : depth0)) != null ? helper : alias2),(typeof helper === alias3 ? helper.call(alias1,{"name":"provincia","hash":{},"data":data}) : helper)))
     + "</td>\r\n				</tr>\r\n\r\n				<tr data-id=\""
     + alias4(((helper = (helper = helpers.index || (data && data.index)) != null ? helper : alias2),(typeof helper === alias3 ? helper.call(alias1,{"name":"index","hash":{},"data":data}) : helper)))
@@ -95,7 +95,7 @@ templates['tabla'] = template({"1":function(container,depth0,helpers,partials,da
 
   return "<i id=\"añadir\" class=\"fa fa-plus-circle fa-2x\"></i>\r\n<table class=\"table table-resposive table-hover\">\r\n	<thead class='thead-dark'>\r\n	<tr class='d-none d-lg-table-row'>\r\n		<th>Nombres</th>\r\n		<th>Ciudad</th>\r\n		<th>Sexo</th>\r\n		<th>Teléfonos</th>\r\n		<th>Fecha de nacimiento</th>\r\n		<th>Dirección</th>\r\n		<th>Provincia</th>\r\n		<th>Fecha de alta</th>\r\n		<th></th>\r\n		<th></th>\r\n		<th></th>\r\n	</tr>\r\n	</thead>\r\n	<tbody class=\"cuerpo\">\r\n"
     + ((stack1 = helpers.each.call(alias1,depth0,{"name":"each","hash":{},"fn":container.program(1, data, 0),"inverse":container.noop,"data":data})) != null ? stack1 : "")
-    + "	</tbody>\r\n	<tbody class=\"d-lg-none\">\r\n"
+    + "	</tbody>\r\n	<tbody class=\"mobile d-lg-none\">\r\n"
     + ((stack1 = helpers.each.call(alias1,depth0,{"name":"each","hash":{},"fn":container.program(4, data, 0),"inverse":container.noop,"data":data})) != null ? stack1 : "")
     + "	</tbody>\r\n</table>";
 },"useData":true});

@@ -20,12 +20,12 @@
 			{{#if this}}
     			<tr data-id="{{@index}}">
 					<td>{{nombres}}</td>
-					<td>{{ciudad}}</td>
+					<td class="ciudad">{{ciudad}}</td>
 					<td>{{sexo}}</td>
 					<td>{{telefono}}</td>
 					<td>{{convertirFecha fechaNacimiento}}</td>
-					<td>{{direccion}}</td>
-					<td>{{provincia}}</td>
+					<td class="direccion">{{direccion}}</td>
+					<td class="provincia">{{provincia}}</td>
 					<td>{{convertirFecha fechaAlta}}</td>
 					<td><i class="modificar fa fa-pencil-alt fa-2x"></i></td>
 					<td><i class="eliminar fa fa-times-circle fa-2x"></i></td><td><i class="ubicacion fa fa-map-marker-alt fa-2x"></i></td>
@@ -33,7 +33,7 @@
   			{{/if}}
 		{{/each}}
 	</tbody>
-	<tbody class="d-lg-none">
+	<tbody class="mobile d-lg-none">
 		{{#each this}}
 			{{#if this}}
     			<tr class="separador {{@index}}">
@@ -44,7 +44,7 @@
     			</tr>
 
 				<tr data-id="{{@index}}" class="ciudad {{@index}}">
-					<td class="font-weight-bold izquierda">Ciudad: </td><td class='derecha'>{{ciudad}}</td>
+					<td class="font-weight-bold izquierda">Ciudad: </td><td class='derecha ciudad'>{{ciudad}}</td>
 				</tr>
 
 				<tr data-id="{{@index}}" class="sexo {{@index}}">
@@ -60,11 +60,11 @@
 				</tr>
 
 				<tr data-id="{{@index}}" class="direccion {{@index}}">
-					<td class="font-weight-bold izquierda">Dirección: </td><td class='derecha'>{{direccion}}</td>
+					<td class="font-weight-bold izquierda">Dirección: </td><td class='derecha direccion'>{{direccion}}</td>
 				</tr>
 
 				<tr data-id="{{@index}}" class="provincia{{@index}}">
-					<td class="font-weight-bold izquierda">Provincia: </td><td class='derecha'>{{provincia}}</td>
+					<td class="font-weight-bold izquierda">Provincia: </td><td class='derecha provincia'>{{provincia}}</td>
 				</tr>
 
 				<tr data-id="{{@index}}" class="fechaAlta {{@index}}">

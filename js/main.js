@@ -85,6 +85,21 @@ $(document).ready(function(){
 		rellenarModal("Modificar", 1);
 	});
 
+	//Evento botón ubicación
+	$("#tabla").on('click', ".ubicacion", function(){
+		padre = $(this).parents('tr');
+		//En función de en que vista este (sm, md, lg) se capturaran unos campos u otros
+		if(padre.parents("tbody").prop("class") != "cuerpo"){
+			direccion = padre.prev().prev().prev().children().eq(1).text();
+			provincia = padre.prev().prev().children().eq(1).text();
+			ciudad = padre.prev().prev().prev().prev().prev().prev().prev().children().eq(1).text();
+		}else{
+			direccion = padre.find("td[class='direccion']").text();
+			provincia = padre.find("td[class='provincia']").text();
+			ciudad = padre.find("td[class='ciudad']").text();
+		}
+		_listClientes.map((direccion + ", " + provincia + ", " + ciudad));
+	});
 
 	//Evento botón eliminar
 	$("#tabla").on('click', ".eliminar", function(){
