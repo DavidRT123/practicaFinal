@@ -1,7 +1,7 @@
 <i id="añadir" class="fa fa-plus-circle fa-2x"></i>
 <table class="table table-resposive table-hover">
 	<thead class='thead-dark'>
-	<tr class='d-none d-sm-table-row'>
+	<tr class='d-none d-lg-table-row'>
 		<th>Nombres</th>
 		<th>Ciudad</th>
 		<th>Sexo</th>
@@ -10,6 +10,7 @@
 		<th>Dirección</th>
 		<th>Provincia</th>
 		<th>Fecha de alta</th>
+		<th></th>
 		<th></th>
 		<th></th>
 	</tr>
@@ -27,12 +28,12 @@
 					<td>{{provincia}}</td>
 					<td>{{convertirFecha fechaAlta}}</td>
 					<td><i class="modificar fa fa-pencil-alt fa-2x"></i></td>
-					<td><i class="eliminar fa fa-times-circle fa-2x"></i></td>
+					<td><i class="eliminar fa fa-times-circle fa-2x"></i></td><td><i class="ubicacion fa fa-map-marker-alt fa-2x"></i></td>
 				</tr>
   			{{/if}}
 		{{/each}}
 	</tbody>
-	<tbody class="d-sm-none">
+	<tbody class="d-lg-none">
 		{{#each this}}
 			{{#if this}}
     			<tr class="separador {{@index}}">
@@ -70,7 +71,7 @@
 					<td class="font-weight-bold izquierda">Fecha de Alta: </td><td class='derecha'>{{convertirFecha fechaAlta}}</td>
 				</tr>
 
-				<tr data-id="{{@index}}" class="botones {{@index}}"><td colspan="2"><i class="modificar fa fa-pencil-alt fa-2x pr-4"></i><i class="eliminar fa fa-times-circle fa-2x pl-4"></i></td>
+				<tr data-id="{{@index}}" class="botones {{@index}}"><td colspan="2"><i class="modificar fa fa-pencil-alt fa-2x pr-4"></i><i class="eliminar fa fa-times-circle fa-2x pl-4 pr-4"></i><i class="ubicacion fa fa-map-marker-alt fa-2x pl-4"></i></td>
 				</tr>
 
 				<tr class="separadorAbajo {{@index}}">
