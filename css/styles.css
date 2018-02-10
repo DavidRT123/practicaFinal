@@ -1,3 +1,7 @@
+  #contenedorMapa{
+    width: 485px; 
+    height:450px;
+  }
 
   .botones{
     text-align: center;
@@ -49,6 +53,11 @@
   .cuerpo{
     display: none;
   }
+
+  #contenedorMapa{
+    width: 300px; 
+  }
+
 } 
 
 /*SM*/

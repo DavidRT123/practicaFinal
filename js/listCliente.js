@@ -17,15 +17,25 @@ _listClientes = (function (){
 	}
 
 	var map = function(direccion){
-		var url = "https://maps.googleapis.com/maps/api/geocode/json?address="+direccion+"&region=es&key=AIzaSyAhPxKupiplcAmbkKEbIX9IF2-2rgcdQE4";
+		var url = "https://maps.googleapis.com/maps/api/geocode/json?address="+direccion+"&region=es&key=AIzaSyD4tdQLJsSEUfPKq_b0UL_2qUU7X9P-8Lw";
 		$.post(url, function(result){
 			if (result.status == "OK") {
 	            var lat = result.results[0].geometry.location.lat;
 	            var lng = result.results[0].geometry.location.lng;
+
+	            var latLng = {lat: lat, lng: lng};
+				var contenedor = document.getElementById("contenedorMapa");
+
+				var mapa = new google.maps.Map(contenedor, 
+					{
+						zoom: 15, 
+						center: latLng, 
+						disableDefaultUI: true,
+					});
+				var puntero = new google.maps.Marker({position:latLng, map:mapa});
 		    }else{
-		        result = "La dirección no ha podido ser localizada";
-		    }
-		    
+		        console.log("ERROR: La dirección no ha podido ser localizada");
+		    }    
 		}, "json");
 	}
 

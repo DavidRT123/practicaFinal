@@ -88,17 +88,19 @@ $(document).ready(function(){
 	//Evento botón ubicación
 	$("#tabla").on('click', ".ubicacion", function(){
 		padre = $(this).parents('tr');
+		indice = padre.data("id");
 		//En función de en que vista este (sm, md, lg) se capturaran unos campos u otros
 		if(padre.parents("tbody").prop("class") != "cuerpo"){
-			direccion = padre.prev().prev().prev().children().eq(1).text();
-			provincia = padre.prev().prev().children().eq(1).text();
-			ciudad = padre.prev().prev().prev().prev().prev().prev().prev().children().eq(1).text();
+			direccion = padre.siblings("[class='direccion "+indice+"']").find(".direccion").text();
+			provincia = padre.siblings("[class='provincia "+indice+"']").find(".provincia").text();
+			ciudad = padre.siblings("[class='ciudad "+indice+"']").find(".ciudad").text();
 		}else{
 			direccion = padre.find("td[class='direccion']").text();
 			provincia = padre.find("td[class='provincia']").text();
 			ciudad = padre.find("td[class='ciudad']").text();
 		}
 		_listClientes.map((direccion + ", " + provincia + ", " + ciudad));
+		rellenarModal("Ubicación", "mapa");
 	});
 
 	//Evento botón eliminar
@@ -158,16 +160,27 @@ $(document).ready(function(){
 		$("#modal").modal();
 		$("#title-modal").html(titulo);
 		//Valor: 1 = Modificar, cualquier otro valor: Añadir
-		if(modAdd == 1){
-			$("#buttMod").show();
-			$("#buttAdd").hide();
+		if(modAdd == "mapa"){
+			$("#modal .modal-footer").hide();
+			$("#contenedorFormulario").hide();
+			$("#contenedorMapa").show();
 		}else{
-			$("#buttMod").hide();
-			$("#buttAdd").show();
+			if(modAdd == 1){
+				$("#buttMod").show();
+				$("#buttAdd").hide();
+			}else{
+				$("#buttMod").hide();
+				$("#buttAdd").show();
+			}
+			$("#contenedorFormulario").show();
+			$("#contenedorMapa").hide();
+			$("#modal .modal-footer").show();
 			//Ocultar la div de fecha alta (no es un dato relevante para el usuario a la hora de añadir)
 			$("#divFechaAlta").hide();
 		}
-		$('#fechaNacimiento').datepicker({changeYear: true, yearRange: "1900:2018", changeMonth: true});
+		if($('#fechaNacimiento')){
+			$('#fechaNacimiento').datepicker({changeYear: true, yearRange: "1900:2018", changeMonth: true});
+		}
 	}
 
 	//Función para transformar fecha
