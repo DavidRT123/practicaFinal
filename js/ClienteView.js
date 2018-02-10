@@ -1,16 +1,21 @@
-var clientesView = (function () {
+define(['events'], function(events){
+	var clientesView = (function () {
 
-	function renderCliente(cliente){
+		function renderCliente(cliente){
 
-		var HTML = Handlebars.templates.clientePlantilla(cliente);
-		$("#contenedorFormulario").html(HTML);
-	}
-		
-	return {
-		init: function () {
-			events.getInstance().subscribe('renderCliente', renderCliente);
+			var HTML = Handlebars.templates.clientePlantilla(cliente);
+			$("#contenedorFormulario").html(HTML);
 		}
-	}
-})();
+			
+		return {
+			init: function () {
+				events.getInstance().subscribe('renderCliente', renderCliente);
+			}
+		}
+	})();
 
-clientesView.init();
+	clientesView.init();
+
+	return clientesView;
+
+});

@@ -1,3 +1,4 @@
+define([], function(){
 	var events = (function () {
 		var instance;
 	 	
@@ -44,5 +45,8 @@
 	 		}
 	 	};
 	})();
+
+	return events;
+});
 
 
