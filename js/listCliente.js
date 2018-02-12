@@ -34,7 +34,7 @@ _listClientes = (function (){
 					});
 				var puntero = new google.maps.Marker({position:latLng, map:mapa});
 		    }else{
-		        console.log("ERROR: La dirección no ha podido ser localizada");
+		        $("#contenedorMapa").html("<div class='text-center' style='height: 100%; margin-top: 40%;' ><h5 class='align-content-center'>La dirección no ha podido ser localizada <i class='far fa-frown'></i></h5></div>");
 		    }    
 		}, "json");
 	}
